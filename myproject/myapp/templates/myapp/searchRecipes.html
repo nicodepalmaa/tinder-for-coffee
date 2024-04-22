@@ -1,0 +1,43 @@
+<!-- searchRecipes.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Recipes</title>
+</head>
+<body>
+    <h1>Search for Recipes</h1>
+    <form method="post" action="{% url 'searchRecipes' %}">
+        {% csrf_token %}
+        <label for="temperature">Choose a temperature:</label>
+        <select name="temperature" id="temperature">
+            {% for temp in temperature %}
+            <option value="{{ temp }}">{{ temp }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="drink">Choose a drink:</label>
+        <select name="drink" id="drink">
+            {% for drink in drink %}
+            <option value="{{ drink }}">{{ drink }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="syrup">Choose a syrup:</label>
+        <select name="syrup" id="syrup">
+            {% for syrup in syrup %}
+            <option value="{{ syrup }}">{{ syrup }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="topping">Choose a topping:</label>
+        <select name="topping" id="topping">
+            {% for topping in topping %}
+            <option value="{{ topping }}">{{ topping }}</option>
+            {% endfor %}
+        </select><br>
+
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html>

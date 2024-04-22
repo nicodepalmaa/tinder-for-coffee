@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Brewmate!</title>
+</head>
+<body>
+    <h1>Welcome to Brewmate! What would you like to do today?</h1>
+    <form method="post" action="{% url 'welcome' %}">
+        {% csrf_token %}
+        <button type="submit" name="action" value="New user">1. New User</button>
+        <button type="submit" name="action" value="Returning user">2. Returning User</button>
+        <button type="submit" name="action" value="Quit">3. Quit</button>
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+    </form>
+</body>
+</html>

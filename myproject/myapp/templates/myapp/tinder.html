@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe Tinder</title>
+</head>
+<body>
+    <h1>Recipe Tinder</h1>
+    {% if recipe %}
+        <div>
+            <h2>{{ recipe.title }} from {{ recipe.source }}</h2>
+            <form method="post">
+                {% csrf_token %}
+                <button name="save" type="submit">Save Recipe</button>
+                <button name="next" type="submit">Pass</button>
+                <button name="return" type="submit">Return to Menu</button>
+            </form>
+        </div>
+    {% else %}
+        <p>No more recipes. Please change search parameters and try again.</p>
+        <form method="post">
+            {% csrf_token %}
+            <button name="return" type="submit">Return to Menu</button>
+        </form>
+    {% endif %}
+</body>
+</html>

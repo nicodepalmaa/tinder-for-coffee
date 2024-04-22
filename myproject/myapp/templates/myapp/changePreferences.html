@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to My App</title>
+</head>
+<body>
+    <h1>Choose new milk type</h1>
+    <form method="post" action="{% url 'changePreferences' %}">
+        {% csrf_token %}
+        <select name="milkType" id="milkType" required>
+            <option value="">Select a milk type</option> <!-- Default placeholder option -->
+            <option value="whole">Whole</option>
+            <option value="skim">Skim</option>
+            <option value="almond">Almond</option>
+            <option value="soy">Soy</option>
+            <option value="oat">Oat</option>
+            <option value="coconut">Coconut</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

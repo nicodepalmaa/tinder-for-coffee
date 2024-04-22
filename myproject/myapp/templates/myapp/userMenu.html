@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Details</title>
+</head>
+<body>
+    <h1>Welcome, {{user.name}}! What would you like to do today?</h1>
+    <p>Your milk type is: {{user.milkType}}</p>
+    <form method="post" action="{% url 'usermenu' %}">
+        {% csrf_token %}
+        <button type="submit" name="action" value="Change milk preference">1. Change milk preference</button>
+        <button type="submit" name="action" value="Search recipes">2. Search recipes</button>
+        <button type="submit" name="action" value="Get saved recipes">3. Get saved recipes</button>
+        <button type="submit" name="action" value="Quit">4. Quit</button>
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+    </form>
+</body>
+</html>

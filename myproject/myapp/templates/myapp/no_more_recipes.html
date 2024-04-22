@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>No More Recipes</title>
+</head>
+<body>
+    <h1>No More Recipes</h1>
+    <p>No more recipes. Please change search parameters and try again.</p>
+    <form method="post">
+        {% csrf_token %}
+        <button name="return" type="submit">Return to Menu</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipes</title>
+</head>
+<body>
+    <h1>Your saved recipes</h1>
+    <ol>
+        {% for recipe in recipes %}
+        <li>From {{ recipe.source }}: {{ recipe.title }}</li>
+        {% empty %}
+        <li>No recipes found.</li>
+        {% endfor %}
+    </ol>
+
+    <!-- Dropdown for deleting a recipe -->
+    <form action="{% url 'delete_recipe' %}" method="post">
+        {% csrf_token %}
+        <label for="delete_recipe">Delete a Recipe:</label>
+        <select name="recipe_title" id="delete_recipe">
+            {% for recipe in recipes %}
+            <option value="{{ recipe.title }}">{{ recipe.title }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Delete</button>
+    </form>
+
+    <!-- Dropdown for opening a recipe -->
+    <form action="{% url 'open_recipe' %}" method="get">
+        <label for="open_recipe">Open a Recipe:</label>
+        <select name="recipe_title" id="open_recipe">
+            {% for recipe in recipes %}
+            <option value="{{ recipe.title }}">{{ recipe.title }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Open</button>
+    </form>
+
+    <form action="{% url 'usermenu' %}" method="get">
+        <button type="submit" name="action" value="Quit">Return</button>
+    </form>
+    
+</body>
+</html>
