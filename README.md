@@ -1,5 +1,5 @@
 # tinder-for-coffee
-in your terminal, navigate to the myproject folder and run the following commands
+in your terminal, navigate to the outer myproject folder and run the following commands
 
 ```
 python3 manage.py makemigrations
