@@ -167,7 +167,7 @@ def searchRecipes(request):
         temperature = request.POST.get('temperature')
 
         searchParams = {
-            "api_key": "71161e6c9dbb0a1ae9a6ba265bad8e8385634aa6148063374366c244e0ba37b0",
+            "api_key": "",
             "engine": "google",
             "q": query,
             "location": "Berkeley, California, United States",
